@@ -17,13 +17,13 @@
     <meta charset="utf-8">
     <title>Home | Coolest Comfort - Webflow Ecommerce website template</title>
     <meta
-      content="Enhance your online presence with the Coolest Comfort Ecommerce Webflow template, meticulously crafted for fashion and retail establishments. Get it now!"
-      name="description">
-    />
-    <meta
-      content="Home | Coolest Comfort - Webflow Ecommerce website template"
-      property="og:title"
-    />
+        name="description"
+        content="Enhance your online presence with the Coolest Comfort Ecommerce Webflow template, meticulously crafted for fashion and retail establishments. Get it now!"
+      />
+      <meta
+        property="og:title"
+        content="Home | Coolest Comfort - Webflow Ecommerce website template"
+      >
     <meta
       content="Enhance your online presence with the Coolest Comfort Ecommerce Webflow template, meticulously crafted for fashion and retail establishments. Get it now!"
       property="og:description"
@@ -104,10 +104,11 @@
       !(function (o, c) {
         var n = c.documentElement,
           t = " w-mod-";
-        (n.className += t + "js"),
-          ("ontouchstart" in o ||
-            (o.DocumentTouch && c instanceof DocumentTouch)) &&
-            (n.className += t + "touch");
+        n.className += t + "js";
+        if ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) {
+          n.className += t + "touch";
+        }
       })(window, document);
     </script>
     <link
@@ -133,13 +134,12 @@
     </script>
   </head>
   <body>
-    <div
+    <header
       data-animation="default"
       data-collapse="medium"
       data-duration="400"
       data-easing="ease"
       data-easing2="ease"
-      role="banner"
       class="navbar w-nav"
     >
       <div class="topbar-wrap">
@@ -151,6 +151,7 @@
             data-w-id="41437780-e190-23e4-33cf-7f25290f4a3d"
             href="#"
             class="alert-bar-close-link w-inline-block"
+            aria-label="Close alert bar"
             ><img
               src="https://cdn.prod.website-files.com/63d0c06097974d7738bb5468/641d558bbe2e3b0f11c9165f_close-white.svg"
               loading="eager"
@@ -463,10 +464,12 @@
                 style="display: none"
                 class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-rightSidebar"
                 data-node-type="commerce-cart-container-wrapper"
+                aria-label="Shopping cart"
               >
                 <div
                   data-node-type="commerce-cart-container"
                   role="dialog"
+                  aria-label="Shopping cart dialog"
                   class="w-commerce-commercecartcontainer cart-container"
                 >
                   <div class="w-commerce-commercecartheader cart-header">
@@ -713,6 +716,7 @@
                   <a
                     href="https://www.facebook.com/"
                     target="_blank"
+                    rel="noopener"
                     class="social-link w-inline-block"
                     ><img
                       src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/6570651f0fb2e670f3263bd4_facebook.svg"
@@ -722,6 +726,7 @@
                   ><a
                     href="https://www.instagram.com/"
                     target="_blank"
+                    rel="noopener"
                     class="social-link w-inline-block"
                     ><img
                       src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657065c8edfa62621ec7d00a_instagram.svg"
@@ -731,6 +736,7 @@
                   ><a
                     href="https://pinterest.com/"
                     target="_blank"
+                    rel="noopener"
                     class="social-link w-inline-block"
                     ><img
                       src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657072f22de4fb9070263d96_pinterest.svg"
@@ -740,6 +746,7 @@
                   ><a
                     href="https://www.youtube.com/"
                     target="_blank"
+                    rel="noopener"
                     class="social-link w-inline-block"
                     ><img
                       src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657073aa823eb18c1696cb05_youtube.svg"
@@ -754,7 +761,7 @@
           <div
             id="w-node-bd7d074b-4399-ac83-ef57-6cef5f43646d-5f4363fc"
             class="menu-button w-nav-button"
-            style="-webkit-user-select: text"
+            style="-webkit-user-select: text; user-select: text"
             aria-label="menu"
             role="button"
             tabindex="0"
@@ -767,7 +774,7 @@
         </div>
       </div>
       <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
-    </div>
+    </header>
     <section class="hero-section-primary">
       <div class="w-layout-grid grid-hero-split">
         <div
@@ -842,6 +849,7 @@
               <a
                 data-w-id="e6e178bb-2586-52b7-3318-dad0fcf02376"
                 href="/category/gloves"
+                aria-label="Browse gloves category"
                 class="category-item w-inline-block"
                 ><img
                   alt=""
@@ -872,6 +880,7 @@
               <a
                 data-w-id="e6e178bb-2586-52b7-3318-dad0fcf02376"
                 href="/category/caps"
+                aria-label="Browse caps category"
                 class="category-item w-inline-block"
                 ><img
                   alt=""
@@ -902,6 +911,7 @@
               <a
                 data-w-id="e6e178bb-2586-52b7-3318-dad0fcf02376"
                 href="/category/scarf"
+                aria-label="Browse scarf category"
                 class="category-item w-inline-block"
                 ><img
                   alt=""
@@ -932,6 +942,7 @@
               <a
                 data-w-id="e6e178bb-2586-52b7-3318-dad0fcf02376"
                 href="/category/sweater"
+                aria-label="Browse sweater category"
                 class="category-item w-inline-block"
                 ><img
                   alt=""
@@ -962,6 +973,7 @@
               <a
                 data-w-id="e6e178bb-2586-52b7-3318-dad0fcf02376"
                 href="/category/cardigans"
+                aria-label="Browse cardigans category"
                 class="category-item w-inline-block"
                 ><img
                   alt=""
@@ -1425,6 +1437,7 @@
                     transform-style: preserve-3d;
                   "
                   href="/category/men"
+                  aria-label="Browse men's category"
                   class="offer-item-left w-inline-block"
                   ><img
                     src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/65717ac482a8e33e840ac5ba_offer-image-01.png"
@@ -1470,6 +1483,7 @@
                     transform-style: preserve-3d;
                   "
                   href="/category/women"
+                  aria-label="Browse women's category"
                   class="offer-item-right w-inline-block"
                   ><img
                     src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/65717bf4df6d9754b0547b9f_offer-image-02.jpg"
@@ -2412,6 +2426,7 @@
           data-w-id="6fab2e98-022e-fe3d-0754-caa9978791cb"
           href="https://www.instagram.com/"
           target="_blank"
+          rel="noopener"
           class="instagram-item-wrap first w-inline-block"
           ><div class="instagram-image-wrap">
             <img
@@ -2434,6 +2449,7 @@
           id="w-node-_6fab2e98-022e-fe3d-0754-caa9978791ce-978791c8"
           href="https://www.instagram.com/"
           target="_blank"
+          rel="noopener"
           class="instagram-content-wrap w-inline-block"
           ><img
             src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657065c8edfa62621ec7d00a_instagram.svg"
@@ -2528,6 +2544,7 @@
           data-w-id="6fab2e98-022e-fe3d-0754-caa997879227"
           href="https://www.instagram.com/"
           target="_blank"
+          rel="noopener"
           class="instagram-item-wrap w-inline-block"
           ><div class="instagram-image-wrap">
             <img
@@ -2703,6 +2720,7 @@
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
+                rel="noopener"
                 class="footer-social-link first w-inline-block"
                 ><img
                   src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/6570651f0fb2e670f3263bd4_facebook.svg"
@@ -2712,6 +2730,7 @@
               ><a
                 href="https://www.instagram.com/"
                 target="_blank"
+                rel="noopener"
                 class="footer-social-link w-inline-block"
                 ><img
                   src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657065c8edfa62621ec7d00a_instagram.svg"
@@ -2735,6 +2754,7 @@
               <a
                 href="https://www.youtube.com/"
                 target="_blank"
+                rel="noopener"
                 class="footer-social-link first w-inline-block"
                 ><img
                   src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657073aa823eb18c1696cb05_youtube.svg"
@@ -2744,6 +2764,7 @@
               ><a
                 href="https://pinterest.com/"
                 target="_blank"
+                rel="noopener"
                 class="footer-social-link w-inline-block"
                 ><img
                   src="https://cdn.prod.website-files.com/656f165a1a8133e0acc22841/657072f22de4fb9070263d96_pinterest.svg"
@@ -2759,12 +2780,14 @@
               <a
                 href="https://webestica.com/"
                 target="_blank"
+                rel="noopener"
                 class="footer-copyright-link"
                 >Webestica</a
               >, Powered by
               <a
                 href="https://webflow.com/"
                 target="_blank"
+                rel="noopener"
                 class="footer-copyright-link"
                 >Webflow</a
               >
@@ -2776,6 +2799,7 @@
     <a
       href="https://webflow.com/templates/designers/webestica"
       target="_blank"
+      rel="noopener"
       class="more-templates w-inline-block"
       ><img
         src="https://cdn.prod.website-files.com/6360b7ce770ddeb3770f652f/63a59d6f6df355075be6d82a_wbs-icon.svg"
