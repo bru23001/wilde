@@ -10,6 +10,13 @@
    */
   async function loadCartTemplate() {
     try {
+      // Check if we're running locally (file:// protocol)
+      if (window.location.protocol === 'file:') {
+        console.warn('Running locally - cart template loading disabled due to CORS restrictions');
+        createFallbackTemplate();
+        return;
+      }
+      
       const response = await fetch('templates/cart-item-template.html');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -41,6 +48,37 @@
       console.error('Failed to load cart template:', error);
       // Fallback: keep the inline template if loading fails
     }
+  }
+  
+  /**
+   * Create a fallback template for local development
+   */
+  function createFallbackTemplate() {
+    const existingTemplate = document.querySelector('script[type="text/x-wf-template"]');
+    if (existingTemplate) return; // Template already exists
+    
+    const fallbackTemplate = `
+      <div class="w-commerce-commercecartitem">
+        <img src="" alt="" class="w-commerce-commercecartitemimage">
+        <div class="w-commerce-commercecartiteminfo">
+          <div class="w-commerce-commercecartproductname"></div>
+          <div class="w-commerce-commercecartitemsku"></div>
+          <div class="w-commerce-commercecartitemquantitywrapper">
+            <input type="number" class="w-commerce-commercecartquantity" value="1" min="1">
+          </div>
+          <div class="w-commerce-commercecartitemprice"></div>
+          <a href="#" class="w-commerce-commercecartremoveitem">Remove</a>
+        </div>
+      </div>
+    `;
+    
+    const templateScript = document.createElement('script');
+    templateScript.type = 'text/x-wf-template';
+    templateScript.id = 'wf-template-cart-item';
+    templateScript.textContent = fallbackTemplate;
+    document.head.appendChild(templateScript);
+    
+    console.log('Fallback cart template created for local development');
   }
   
   // Load template when DOM is ready

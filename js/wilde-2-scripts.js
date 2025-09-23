@@ -264,3 +264,126 @@ const handleScroll = debounce(() => {
 }, 10);
 
 window.addEventListener('scroll', handleScroll);
+
+// Scroll Animation System using Intersection Observer
+function initScrollAnimations() {
+    // Check if Intersection Observer is supported
+    if (!('IntersectionObserver' in window)) {
+        // Fallback for older browsers - show all elements
+        const animatedElements = document.querySelectorAll('[class*="scroll-animate"], [class*="scroll-stagger"], [class*="scroll-slide"]');
+        animatedElements.forEach(el => el.classList.add('animate-in'));
+        return;
+    }
+
+    // Configuration for the intersection observer
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px 0px -10% 0px', // Trigger when element is 10% from bottom of viewport
+        threshold: [0, 0.1, 0.3] // Multiple thresholds for different trigger points
+    };
+
+    // Create intersection observer
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const element = entry.target;
+            
+            // Check if element is intersecting and has crossed our threshold
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+                // Add animation class
+                element.classList.add('animate-in');
+                
+                // Stop observing this element once animated (optional - removes for performance)
+                scrollObserver.unobserve(element);
+                
+                // Dispatch custom event for any additional functionality
+                element.dispatchEvent(new CustomEvent('scrollAnimateIn', {
+                    detail: { element, entry }
+                }));
+            }
+        });
+    }, observerOptions);
+
+    // Find all elements with scroll animation classes
+    const scrollAnimateElements = document.querySelectorAll(`
+        .scroll-animate,
+        .scroll-animate-scale,
+        .scroll-animate-fade,
+        .scroll-stagger,
+        .scroll-slide-left,
+        .scroll-slide-right
+    `);
+
+    // Start observing each element
+    scrollAnimateElements.forEach(element => {
+        // Ensure element starts hidden (in case CSS didn't load properly)
+        if (!element.classList.contains('animate-in')) {
+            scrollObserver.observe(element);
+        }
+    });
+
+    // Store observer reference for potential cleanup
+    window.WildeScrollObserver = scrollObserver;
+}
+
+// Enhanced scroll animations with performance optimization
+const initAdvancedScrollAnimations = debounce(() => {
+    // Only initialize if elements exist
+    const hasScrollAnimations = document.querySelector('[class*="scroll-animate"], [class*="scroll-stagger"], [class*="scroll-slide"]');
+    if (hasScrollAnimations) {
+        initScrollAnimations();
+    }
+}, 100);
+
+// Initialize scroll animations when DOM is ready
+document.addEventListener('DOMContentLoaded', initAdvancedScrollAnimations);
+
+// Re-initialize if new content is added dynamically (useful for future features)
+window.reinitScrollAnimations = function() {
+    if (window.WildeScrollObserver) {
+        window.WildeScrollObserver.disconnect();
+    }
+    initScrollAnimations();
+};
+
+// Side Menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const sideMenuToggle = document.getElementById('side-menu-toggle');
+    const sideMenu = document.getElementById('side-menu');
+    const sideMenuClose = document.getElementById('side-menu-close');
+    const sideMenuOverlay = document.getElementById('side-menu-overlay');
+
+    function openSideMenu() {
+        sideMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeSideMenu() {
+        sideMenu.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    if (sideMenuToggle) {
+        sideMenuToggle.addEventListener('click', openSideMenu);
+    }
+
+    if (sideMenuClose) {
+        sideMenuClose.addEventListener('click', closeSideMenu);
+    }
+
+    if (sideMenuOverlay) {
+        sideMenuOverlay.addEventListener('click', closeSideMenu);
+    }
+
+    // Close side menu with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sideMenu.classList.contains('active')) {
+            closeSideMenu();
+        }
+    });
+
+    // Expose side menu functions globally
+    window.SideMenu = {
+        open: openSideMenu,
+        close: closeSideMenu
+    };
+});

@@ -74,7 +74,7 @@
 /* Component-specific color classes */
 .navbar .topbar-wrap,
 .w-nav .topbar-wrap {
-  background-color: var(--color-accent) !important;
+  background-color: var(--color-primary) !important;
 }
 
 /* Custom topbar override class */
@@ -98,8 +98,7 @@
 
 /* Offer section background override */
 .offer-section {
-  background-color: var(--color-secondary) !important;
-  background-image: none !important;
+  background: var(--color-bg) url('../images/Embroidery-machine.png') center/cover no-repeat !important;
 }
 
 /* Offer item backgrounds */
