@@ -1,0 +1,104 @@
+/* Webflow animations and interactions */
+@media (min-width: 992px) {
+  html.w-mod-js:not(.w-mod-ix)
+    [data-w-id="3a3e4779-9915-71f7-2c9b-57023817f466"] {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+    -moz-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+    -ms-transform: translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+    transform: translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+  }
+  html.w-mod-js:not(.w-mod-ix)
+    [data-w-id="2e06314d-035a-4ea2-972a-6853d5c6124d"] {
+    -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+    -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+    -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0)
+      rotateY(0) rotateZ(0) skew(0, 0);
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0)
+      rotateZ(0) skew(0, 0);
+  }
+}
+
+/* Instagram Marquee Animation Classes */
+.instagram-marquee-animated {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.instagram-marquee-left {
+  transform: translate3d(-21.8428%, 0px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
+
+.instagram-marquee-right {
+  transform: translate3d(21.8428%, 0px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+}
+
+/* Instagram Image Animation - uses base transform */
+.instagram-image-animated {
+  /* Extends .transform-base */
+}
+
+/* Footer Animation - uses base transform + opacity */
+.footer-animated {
+  opacity: 1;
+  /* Extends .transform-base */
+}
+
+/* Base transform utilities - consolidated patterns */
+.transform-base {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+.transform-fade-up {
+  transform: translate3d(0px, 20px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+.transform-fade-up-small {
+  transform: translate3d(0px, 30px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+/* Opacity utilities */
+.opacity-hidden {
+  opacity: 0;
+}
+
+.opacity-visible {
+  opacity: 1;
+}
+
+/* Combined animation classes */
+.animate-fade-up {
+  opacity: 0;
+}
+.animate-fade-up.transform-fade-up {
+  /* Uses transform-fade-up class */
+}
+
+.animate-visible {
+  opacity: 1;
+}
+.animate-visible.transform-base {
+  /* Uses transform-base class */
+}
+
+.animate-hidden {
+  opacity: 0;
+}
+
+.animate-fade-up-small {
+  opacity: 0;
+}
+.animate-fade-up-small.transform-fade-up-small {
+  /* Uses transform-fade-up-small class */
+}

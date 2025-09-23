@@ -1,0 +1,160 @@
+/* 
+ * Wilde By Design - Component Styles
+ * Extracted inline styles for better maintainability
+ */
+
+/* Consolidated Animation Styles - use base classes from animations.css */
+.offer-item-animated,
+.offer-content-animated,
+.benefit-section-animated,
+.benefit-item-animated,
+.testimonial-section-animated {
+  opacity: 1;
+  /* These classes now extend .transform-base from animations.css */
+}
+
+.testimonial-slide-animated {
+  transition: all, transform 500ms;
+  transform: translateX(1053.34375px);
+  opacity: 1;
+}
+
+/* Grid Layout Components */
+.grid-offer {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.grid-benefit {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+/* Container Styles */
+.container-medium {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Utility Classes */
+.no-margin {
+  margin: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Button Styles */
+.button-primary-1-outline {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.button-primary-1-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+.border-dotted {
+  border-style: dotted;
+}
+
+/* Slider Styles */
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-slider-wrap {
+  position: relative;
+}
+
+.testimonial-slider-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Benefit Section Specific */
+.benefit-section-divider {
+  width: 100px;
+  height: 2px;
+  background-color: var(--color-primary);
+  margin: 20px auto;
+}
+
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.benefit-item-wrap {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Section Title Styles */
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title-center {
+  text-align: center;
+}
+
+.offer-section-title-lg {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.offer-section-title {
+  font-size: 2rem;
+  color: var(--color-body);
+  margin-bottom: 20px;
+}
+
+/* Testimonial Styles */
+.testimonial-slider-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.testimonial-slider-content {
+  padding: 20px;
+}
+
+.testimonial-slider-title {
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.testimonial-slider-name {
+  font-weight: bold;
+  color: var(--color-body);
+  margin-top: 15px;
+}

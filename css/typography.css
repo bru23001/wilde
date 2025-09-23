@@ -1,0 +1,117 @@
+/* SignPainter font from system */
+@font-face {
+  font-family: 'SignPainter';
+  src: local('SignPainter-HouseScript'),
+       local('SignPainter HouseScript'),
+       local('SignPainter'),
+       local('Sign Painter');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Web fonts with system fallbacks */
+  --font-heading: 'M PLUS Rounded 1c', sans-serif, 'Helvetica Neue', 'Arial';
+  --font-body: 'M PLUS Rounded 1c', sans-serif, 'Helvetica Neue', 'Arial';
+  --font-accent: 'Courgette', cursive, 'Brush Script MT';
+  
+  /* SignPainter logo font option */
+  --font-signpainter: 'SignPainter', cursive;
+  
+  /* Font Assignments */
+  --font-handwriting: 'Courgette', cursive;
+  --font-decorative: 'Courgette', cursive;
+  
+  /* Pure system font stacks (uncomment to use instead) */
+  /* --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; */
+  /* --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; */
+  /* --font-accent: 'Marker Felt', 'Bradley Hand', cursive; */
+}
+
+
+h1,h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.m-plus-rounded-1c-regular {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.courgette-regular {
+  font-family: "Courgette", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+blockquote, .handwritten {
+  font-family: var(--font-signpainter);
+  color: var(--color-secondary);
+}
+
+/* Font utility classes */
+.signpainter {
+  font-family: var(--font-signpainter);
+}
+
+.playball-regular {
+  font-family: "Playball", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Example usage classes */
+.signpainter-heading {
+  font-family: var(--font-signpainter);
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+.signpainter-accent {
+  font-family: var(--font-signpainter);
+  color: var(--color-secondary);
+}
+
+.playball-heading {
+  font-family: var(--font-decorative);
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+.roboto-heading {
+  font-family: var(--font-body);
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}

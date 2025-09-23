@@ -1,0 +1,120 @@
+/* 
+ * Wilde By Design - Color System
+ * This file contains all color variables used throughout the site
+ */
+
+:root {
+  /* Main brand colors */
+  --color-primary: #C8553D;    /* Primary brand color - Jasper */
+  --color-secondary: #A3B18A;  /* Secondary brand color - sage  */
+  --color-dark: #333333;       /* Text color - dark gray */
+  
+  /* Background colors */
+  --color-bg: #ffffff;         /* Default background - white */
+  --color-bg-alt: #ffd5c2;     /* Alternate background - Apricot */
+  --color-bg-tertiary: #DAD7CD;     /* Tertiary background - Timberwolf */
+  
+  /* UI colors */
+  --color-border: var(--color-primary); /* Border color */
+  --color-accent: #F28F3B;     /* Accent color for highlights - Tangerine*/
+  --color-success: #588157;    /* Success messages */
+  --color-error: #e92222;      /* Error messages */
+  
+
+  /* Green colors */
+  --color-green-primary: #A3B18A;    /* Green primary - Sage */
+  --color-green-secondary: #588157;  /* Green secondary - Fern green */
+  --color-green-tertiary: #3A5A40;  /* Green tertiary - Hunter green */
+  --color-green-quaternary: #344E41;  /* Green quaternary - Brunswick green */
+  
+
+  /* Text colors */
+  --color-heading: var(--color-primary);
+  --color-body: var(--color-dark);
+  --color-light: #ffffff;
+  
+  /* Utility */
+  --color-transparent: transparent;
+}
+
+/* Background color utility classes */
+.bg-primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.bg-white {
+  background-color: var(--color-bg);
+  color: var(--color-body);
+}
+
+.bg-alt {
+  background-color: var(--color-bg-alt);
+  color: var(--color-body);
+}
+
+/* Text color utility classes */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-light {
+  color: var(--color-light);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+/* Component-specific color classes */
+.navbar .topbar-wrap,
+.w-nav .topbar-wrap {
+  background-color: var(--color-accent) !important;
+}
+
+/* Custom topbar override class */
+.topbar-orange {
+  background-color: var(--color-primary) !important;
+  background-image: none !important;
+}
+
+/* Force topbar child elements */
+.topbar-orange .topbar,
+.topbar {
+  background-color: var(--color-primary) !important;
+  background-image: none !important;
+}
+
+/* Hero section background override */
+.hero-section-primary {
+  background-color: var(--color-primary) !important;
+  background-image: none !important;
+}
+
+/* Offer section background override */
+.offer-section {
+  background-color: var(--color-secondary) !important;
+  background-image: none !important;
+}
+
+/* Offer item backgrounds */
+.offer-item-left,
+.offer-item-right,
+.offer-item-animated {
+  background-color: var(--color-secondary) !important;
+  background-image: none !important;
+}
+
+/* Offer item title backgrounds */
+.offer-item-left-title,
+.offer-item-right-title {
+  background-color: var(--color-secondary) !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  color: var(--color-light) !important;
+}

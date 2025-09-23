@@ -1,0 +1,4 @@
+/* Webflow accessibility fixes */
+.wf-force-outline-none[tabindex="-1"]:focus {
+  outline: none;
+}

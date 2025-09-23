@@ -1,0 +1,69 @@
+<!--
+  Webflow Commerce Cart Item Template
+  This template defines how individual cart items are rendered
+-->
+<div class="w-commerce-commercecartitem">
+  <img 
+    src="https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg" 
+    data-wf-bindings="[{&quot;src&quot;:{&quot;type&quot;:&quot;ImageRef&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].sku.f_main_image_4dr&quot;}}]" 
+    alt="" 
+    class="w-commerce-commercecartitemimage w-dyn-bind-empty"
+  />
+  <div class="w-commerce-commercecartiteminfo">
+    <div 
+      data-wf-bindings="[{&quot;innerHTML&quot;:{&quot;type&quot;:&quot;PlainText&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].product.f_name_&quot;}}]" 
+      class="w-commerce-commercecartproductname w-dyn-bind-empty">
+    </div>
+    <div 
+      data-wf-bindings="[{&quot;innerHTML&quot;:{&quot;type&quot;:&quot;CommercePrice&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;price&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].price&quot;}}]">
+      $0.00 USD
+    </div>
+    
+    <!-- SKU Properties Template -->
+    <script type="text/x-wf-template" id="wf-template-bd7d074b-4399-ac83-ef57-6cef5f436449">
+      <li>
+        <span data-wf-bindings="[{&quot;innerHTML&quot;:{&quot;type&quot;:&quot;PlainText&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].product.f_sku_properties_3dr[].name&quot;}}]"></span>
+        <span>: </span>
+        <span data-wf-bindings="[{&quot;innerHTML&quot;:{&quot;type&quot;:&quot;CommercePropValues&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].product.f_sku_properties_3dr[]&quot;}}]"></span>
+      </li>
+    </script>
+    
+    <ul 
+      data-wf-bindings="[{&quot;optionSets&quot;:{&quot;type&quot;:&quot;CommercePropTable&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].product.f_sku_properties_3dr[]&quot;}},{&quot;optionValues&quot;:{&quot;type&quot;:&quot;CommercePropValues&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].sku.f_sku_values_3dr&quot;}}]" 
+      class="w-commerce-commercecartoptionlist" 
+      data-wf-collection="database.commerceOrder.userItems[].product.f_sku_properties_3dr" 
+      data-wf-template-id="wf-template-bd7d074b-4399-ac83-ef57-6cef5f436449">
+      <li>
+        <span data-wf-bindings="[{&quot;innerHTML&quot;:{&quot;type&quot;:&quot;PlainText&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].product.f_sku_properties_3dr[].name&quot;}}]"></span>
+        <span>: </span>
+        <span data-wf-bindings="[{&quot;innerHTML&quot;:{&quot;type&quot;:&quot;CommercePropValues&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].product.f_sku_properties_3dr[]&quot;}}]"></span>
+      </li>
+    </ul>
+    
+    <a 
+      href="#" 
+      role="button" 
+      data-wf-bindings="[{&quot;data-commerce-sku-id&quot;:{&quot;type&quot;:&quot;ItemRef&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].sku.id&quot;}}]" 
+      class="w-inline-block" 
+      data-wf-cart-action="remove-item" 
+      data-commerce-sku-id="" 
+      aria-label="Remove item from cart">
+      <div>Remove</div>
+    </a>
+  </div>
+  
+  <input 
+    aria-label="Update quantity" 
+    data-wf-bindings="[{&quot;value&quot;:{&quot;type&quot;:&quot;Number&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;numberPrecision&quot;,&quot;params&quot;:[&quot;0&quot;,&quot;numberPrecision&quot;]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].count&quot;}},{&quot;data-commerce-sku-id&quot;:{&quot;type&quot;:&quot;ItemRef&quot;,&quot;filter&quot;:{&quot;type&quot;:&quot;identity&quot;,&quot;params&quot;:[]},&quot;dataPath&quot;:&quot;database.commerceOrder.userItems[].sku.id&quot;}}]" 
+    class="w-commerce-commercecartquantity product-quantity" 
+    required="" 
+    pattern="^[0-9]+$" 
+    inputMode="numeric" 
+    type="number" 
+    name="quantity" 
+    autoComplete="off" 
+    data-wf-cart-action="update-item-quantity" 
+    data-commerce-sku-id="" 
+    value="1"
+  />
+</div>
