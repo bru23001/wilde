@@ -508,53 +508,113 @@ html, body {
   margin-bottom: 0 !important;
 }
 
-/* Category Styles */
+/* Category Styles - Updated for 1200px Boundary Compliance v2.1 */
 .category-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 60px;
+  gap: 25px;
   margin-top: 50px;
   justify-items: center;
   align-items: start;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1080px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  padding: 0 40px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Override scroll animation transforms for category-list to maintain boundaries */
+.category-list.scroll-stagger {
+  max-width: 1080px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 0 40px !important;
+  overflow: hidden !important;
+}
+
+.category-list.scroll-stagger > * {
+  /* Preserve individual item animations but constrain parent container */
+  max-width: none !important;
+}
+
+/* ULTRA HIGH PRIORITY BOUNDARY ENFORCEMENT */
+section.category-section div.container div.category-list.scroll-stagger {
+  max-width: 1080px !important;
+  width: 100% !important;
+  margin: 50px auto 0 auto !important;
+  padding: 0 40px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 25px !important;
+  justify-items: center !important;
 }
 
 /* Responsive adjustments for category grid */
 @media screen and (max-width: 991px) {
   .category-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 35px;
+  }
+  
+  .category-list.scroll-stagger {
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    padding: 0 40px !important;
   }
   
   .category-item {
-    width: 138px;
-    height: 138px;
+    width: 150px;
+    height: 150px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .category-list {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 35px;
+    padding: 0 25px !important;
+  }
+  
+  .category-list.scroll-stagger {
+    max-width: 1120px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    padding: 0 25px !important;
   }
   
   .category-item {
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
   }
 }
 
 @media screen and (max-width: 479px) {
   .category-list {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
+    padding: 0 20px !important;
+  }
+  
+  .category-list.scroll-stagger {
+    max-width: 1120px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    padding: 0 20px !important;
   }
   
   .category-item {
-    width: 154px;
-    height: 154px;
+    width: 160px;
+    height: 160px;
     max-width: 90vw;
   }
 }
@@ -563,14 +623,16 @@ html, body {
   display: block;
   text-decoration: none;
   text-align: center;
-  width: 176px;
-  height: 176px;
+  width: 155px;
+  height: 155px;
   border: 1px solid var(--color-primary);
   border-radius: 0;
   overflow: hidden;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  max-width: 155px !important;
+  flex-shrink: 0 !important;
 }
 
 .category-item:hover {

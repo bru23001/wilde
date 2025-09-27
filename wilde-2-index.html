@@ -231,7 +231,7 @@
     <section class="benefit-section section-spacing scroll-animate">
       <div class="container">
         <div class="section-title text-center scroll-slide-left">
-          <h2>Why Choose Wilde By Design</h2>
+          <h2 class="font-accent">Why Choose Wilde By Design</h2>
         </div>
         <div class="benefit-section-divider"></div>
         <div class="grid-benefit scroll-stagger">
@@ -247,6 +247,50 @@
             <h3>Timely Delivery</h3>
             <p>Your order arrives quickly, with no shortcuts on quality.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form-section section-spacing scroll-animate">
+      <div class="container">
+        <div class="section-title text-center scroll-animate-fade">
+          <h2 class="font-accent">Get Your Custom Quote</h2>
+          <p>Ready to bring your embroidery vision to life? Tell us about your project!</p>
+        </div>
+        <div class="contact-form-wrapper scroll-stagger">
+          <form class="contact-form" id="contact-form" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="project-details">Project Details *</label>
+              <textarea id="project-details" name="project-details" rows="6" placeholder="Tell us about your embroidery project - what items, quantities, design ideas, timeline, etc." required></textarea>
+            </div>
+            <div class="form-group file-upload-group">
+              <label for="file-upload">Upload Design Files (Optional)</label>
+              <div class="file-upload-wrapper">
+                <input type="file" id="file-upload" name="file-upload" accept=".jpg,.jpeg,.png,.pdf,.ai,.eps,.svg" multiple>
+                <div class="file-upload-display">
+                  <span class="material-symbols-outlined">cloud_upload</span>
+                  <span class="upload-text">Choose files or drag &amp; drop</span>
+                  <span class="upload-hint">Supported: JPG, PNG, PDF, AI, EPS, SVG (Max 10MB each)</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="hero-cta-button form-submit-btn">
+                <span class="material-symbols-outlined">send</span>
+                Send Quote Request
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

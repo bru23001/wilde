@@ -386,4 +386,90 @@ document.addEventListener('DOMContentLoaded', function() {
         open: openSideMenu,
         close: closeSideMenu
     };
+
+    // Initialize contact form
+    initializeContactForm();
 });
+
+// Contact Form Functionality
+function initializeContactForm() {
+  const fileInput = document.getElementById('file-upload');
+  const uploadDisplay = document.querySelector('.file-upload-display');
+  const uploadText = document.querySelector('.upload-text');
+  const contactForm = document.getElementById('contact-form');
+
+  if (!fileInput || !uploadDisplay || !uploadText) return;
+
+  // File upload handling
+  fileInput.addEventListener('change', function(e) {
+    const files = e.target.files;
+    if (files.length > 0) {
+      const fileNames = Array.from(files).map(file => file.name);
+      if (files.length === 1) {
+        uploadText.textContent = fileNames[0];
+      } else {
+        uploadText.textContent = `${files.length} files selected`;
+      }
+      uploadDisplay.style.borderColor = 'var(--color-primary)';
+      uploadDisplay.style.background = 'rgba(163, 177, 138, 0.1)';
+    } else {
+      uploadText.textContent = 'Choose files or drag & drop';
+      uploadDisplay.style.borderColor = '#d0d0d0';
+      uploadDisplay.style.background = '#fafafa';
+    }
+  });
+
+  // Drag and drop functionality
+  uploadDisplay.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    uploadDisplay.style.borderColor = 'var(--color-primary)';
+    uploadDisplay.style.background = 'rgba(163, 177, 138, 0.1)';
+  });
+
+  uploadDisplay.addEventListener('dragleave', function(e) {
+    e.preventDefault();
+    if (!fileInput.files.length) {
+      uploadDisplay.style.borderColor = '#d0d0d0';
+      uploadDisplay.style.background = '#fafafa';
+    }
+  });
+
+  uploadDisplay.addEventListener('drop', function(e) {
+    e.preventDefault();
+    const files = e.dataTransfer.files;
+    fileInput.files = files;
+    
+    // Trigger change event
+    const event = new Event('change', { bubbles: true });
+    fileInput.dispatchEvent(event);
+  });
+
+  // Form submission handling
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const projectDetails = formData.get('project-details');
+      
+      // Basic validation
+      if (!name || !email || !projectDetails) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // Here you would typically send the data to your server
+      // For now, we'll just show a success message
+      alert('Thank you for your quote request! We\'ll get back to you within 24 hours.');
+      
+      // Reset form
+      contactForm.reset();
+      uploadText.textContent = 'Choose files or drag & drop';
+      uploadDisplay.style.borderColor = '#d0d0d0';
+      uploadDisplay.style.background = '#fafafa';
+    });
+  }
+}
