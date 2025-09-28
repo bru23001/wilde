@@ -88,7 +88,7 @@
                 <span class="material-symbols-outlined">shopping_bag</span>
                 <div class="navbar-cart-quantity">0</div>
               </a>
-              <button type="button" class="navbar-icon-link" aria-label="Menu" id="side-menu-toggle">
+              <button type="button" class="navbar-icon-link hamburger-toggle" aria-label="Menu" id="hamburger-menu-toggle">
                 <span class="material-symbols-outlined">menu_open</span>
               </button>
             </div>
@@ -98,28 +98,33 @@
     </header>
 
     <!-- Side Menu -->
-    <div class="side-menu" id="side-menu">
-      <div class="side-menu-overlay" id="side-menu-overlay"></div>
-      <div class="side-menu-content">
-        <button type="button" class="side-menu-close" id="side-menu-close" aria-label="Close menu">
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="hamburger-menu-overlay" id="hamburger-menu-overlay"></div>
+      <div class="hamburger-menu-content">
+        <button type="button" class="hamburger-menu-close" id="hamburger-menu-close" aria-label="Close menu">
           <span class="material-symbols-outlined">close</span>
         </button>
 
-        <div class="side-menu-header">
-          <h2>Welcome to <br>Wilde By Design</h2>
-          <p>We specialize in embroidery that unites tradition, artistry, and modern flair.</p>
-        </div>
+        <nav class="hamburger-nav" aria-label="Mobile navigation">
+          <a href="/" aria-current="page" class="hamburger-nav-link current">Home</a>
+          <a href="/shop" class="hamburger-nav-link">Shop All</a>
+          <a href="/about" class="hamburger-nav-link">Our Story</a>
 
-        <div class="side-menu-contact">
-          <h3>Contact us</h3>
-          <div class="contact-info">
-            <p><strong>Visit store:</strong> 1514 North Parc Grove Ct.<br>O'Fallon, IL 62269</p>
-            <p><strong>Call us:</strong> <a href="tel:+26547851245">+2&nbsp;654&nbsp;785&nbsp;1245</a></p>
-            <p><strong>Mail us:</strong> <a href="mailto:hello@example.com">hello@example.com</a></p>
+          <!-- Pages submenu items -->
+          <div class="hamburger-nav-section">
+            <h3 class="hamburger-nav-heading">Categories</h3>
+            <a href="/category/gloves" class="hamburger-nav-link submenu">Gloves</a>
+            <a href="/category/caps" class="hamburger-nav-link submenu">Caps</a>
+            <a href="/category/jackets" class="hamburger-nav-link submenu">Jackets</a>
+            <a href="/category/hoodies" class="hamburger-nav-link submenu">Hoodies</a>
+            <a href="/category/t-shirts" class="hamburger-nav-link submenu">T-shirts</a>
+            <a href="/category/bags" class="hamburger-nav-link submenu">Bags</a>
+            <a href="/contact" class="hamburger-nav-link submenu">Contact</a>
           </div>
-        </div>
+        </nav>
 
-        <div class="side-menu-social">
+        <div class="hamburger-menu-footer">
+          <div class="hamburger-menu-social">
           <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
             <span class="material-symbols-outlined">facebook</span>
           </a>
@@ -132,6 +137,7 @@
           <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
             <span class="material-symbols-outlined">play_arrow</span>
           </a>
+          </div>
         </div>
       </div>
     </div>
